@@ -4,18 +4,21 @@ var imgDataArray = [];
 const P3Serie = '4947';
 const CreepyPodden = '4845';
 const P3Krim = '5413';
+const Dystopia = '5188';
 
-const container = document.querySelector('.playlist-container');
+const container = document.querySelector('.container');
 
 const jumbotron = document.getElementById('jumbotron');
 
 // shows imgs
 function createCards(program) {
-  container.innerHTML += `
+  const tableContainer = document.querySelector('.tableContainer');
+  tableContainer.innerHTML += `
   <div>
   <img class="imgBtn" src="${program.socialimage}" alt="${program.name}" />
   <p>${program.description}</p>
   </div>`;
+  tableContainer.classList.add('main-programs');
   addEventListener();
 }
 
@@ -29,6 +32,7 @@ function addEventListener() {
 function onClick(evt) {
   console.log('evt target alt is ', evt.target.alt);
   console.log('img array is ', imgDataArray);
+  //var targetImg = evt.target.alt;
   Remover();
   if (evt.target.alt === 'Creepypodden i P3') {
     creepypoddenInit();
@@ -42,16 +46,18 @@ function onClick(evt) {
 //REMOVE ELEMENTS IN THE PAGE TO GO TO THE NEXT PAGE
 const Remover = () => {
   container.innerHTML = ``;
+  jumbotron.innerHTML = ``;
 };
 
 const init = () => {
   jumbotron.innerHTML = `
     <h1>Chill Podcast</h1>
 `;
-  const chooseYourHorror = document.createElement('h2');
-  chooseYourHorror.innerText = 'Choose Your Horror';
 
-  container.append(chooseYourHorror);
+  container.innerHTML += `
+  <h2>CHOOSE YOUR HORROR</h2>
+  <div class="tableContainer"></div>
+  `;
 };
 
 init();
@@ -77,3 +83,4 @@ const fetchProgramData = (program) => {
 fetchProgramData(P3Serie);
 fetchProgramData(CreepyPodden);
 fetchProgramData(P3Krim);
+fetchProgramData(Dystopia);

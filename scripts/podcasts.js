@@ -1,5 +1,3 @@
-const query = '?format=json';
-
 function secondsToHms(seconds) {
   const time = {
     hours: String(Math.floor(Number(seconds) / 3600)),
@@ -37,16 +35,18 @@ const makeTable = () => {
 </table>`;
 };
 
-const buildPlaylist = (podfiles) => {
+const getIndexOfImgDataArray = () => {};
+
+const buildPlaylist = (episodes) => {
   const playlistBody = document.querySelector('#playlistBody');
-  for (let i = 0; i < podfiles.length; i++) {
+  for (let i = 0; i < 10; i++) {
     playlistBody.innerHTML += `
             <tr data-index="${i}">
-            <td class="play-pause"><img src="${imgDataArray[].img}"></td>
-            <td>${podfiles[i].title}</td>
-            <td>${podfiles[i].description}</td>
-            <td>${podfiles[i].program.name}</td>
-            <td>${secondsToHms(podfiles[i].duration)}</td>
+            <td class="play-pause"><img src="${episodes[i].imageurl}"></td>
+            <td>${episodes[i].title}</td>
+            <td>${episodes[i].description}</td>
+            <td>${episodes[i].program.name}</td>
+            <td>${secondsToHms(episodes[i].listenpodfile.duration)}</td>
           </tr>
     `;
   }
@@ -54,22 +54,24 @@ const buildPlaylist = (podfiles) => {
 
 const episodeArray = () => {
   for (let i = 0; i < 10; i++) {
-    episodes.push(podfiles[i].url);
+    episodes.push(episodes[i].url);
   }
   return episodes;
 };
 
+//`https://api.sr.se/api/v2/podfiles?programid=${program}&format=json`;
+
 const fetchEpisodesData = (program) => {
-  let URL = `https://api.sr.se/api/v2/podfiles?programid=${program}&format=json`;
+  let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
 
   fetch(URL)
     .then((res) => res.json())
     .then((data) => {
       console.log('fetching... ', data);
 
-      let podfiles = data.podfiles;
-      console.log('podfiles are ', podfiles);
-      buildPlaylist(podfiles);
+      let episodes = data.episodes;
+      console.log('episodes are ', episodes);
+      buildPlaylist(episodes);
     })
     .catch((error) => {
       console.log(error, 'There has been an error');
