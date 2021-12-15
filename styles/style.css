@@ -19,24 +19,14 @@ body {
           align-items: center;
 }
 
-.playlist-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  min-width: 100%;
-  height: 500px;
-  padding: 32px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+header {
+  width: 100%;
+  height: auto;
 }
 
-img:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+#jumbotron {
+  width: 100%;
+  height: 50vh;
+  background-image: url("../assets/creepywoods.jpg");
 }
 /*# sourceMappingURL=style.css.map */
