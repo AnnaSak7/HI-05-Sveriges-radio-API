@@ -6,15 +6,15 @@ var clickedID;
 var index;
 var Data;
 
+const container = document.querySelector('.container');
+
+const jumbotron = document.getElementById('jumbotron');
+
 //program ids
 const P3Serie = '4947';
 const CreepyPodden = '4845';
 const P3Krim = '5413';
 const Dystopia = '5188';
-
-const container = document.querySelector('.container');
-
-const jumbotron = document.getElementById('jumbotron');
 
 const fetchProgramData = (program) => {
   let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
@@ -40,8 +40,15 @@ const sortDataInArray = (data) => {
   programDataArray.push(dataObjects);
 };
 
+function fetchInit() {
+  fetchProgramData(CreepyPodden);
+  fetchProgramData(P3Krim);
+  fetchProgramData(P3Serie);
+  fetchProgramData(Dystopia);
+}
+
 //INITIALIZING
-const init = async () => {
+const init = () => {
   jumbotron.innerHTML = `
     <div id="title">
     <h1>BEDTIME STORIES</h1>
@@ -55,13 +62,17 @@ const init = async () => {
   <div class="tableContainer"></div>
   `;
 
+  fetchInit();
+};
+
+init();
+
+async function fetchInit() {
   fetchProgramData(CreepyPodden);
   fetchProgramData(P3Krim);
   fetchProgramData(P3Serie);
   fetchProgramData(Dystopia);
-};
-
-init();
+}
 
 //EventListener to nav btns
 const homeBtn = document.getElementById('home');
@@ -133,7 +144,7 @@ const Remover = () => {
 function getClickedElement(event) {
   console.log('dataArray is ', programDataArray);
   clickedAlt = event.target.getAttribute('alt');
-  console.log('clicedID is ', clickedAlt);
+  console.log('clickedID is ', clickedAlt);
 
   index = programDataArray.map((e) => e.name).indexOf(clickedAlt);
   console.log('index is ', index);
