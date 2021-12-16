@@ -128,11 +128,20 @@ nav ul li:hover {
   text-shadow: 20px 20px 10px #460101;
 }
 
-#jumbotron #title p {
+#jumbotron #title #terror {
   font-size: 3rem;
   color: #000;
-  font-weight: 500;
+  font-weight: 700;
   text-shadow: 1px 5px 10px #460101;
+  background-color: rgba(210, 204, 204, 0.331);
+}
+
+#jumbotron #title #swedish {
+  font-size: 2rem;
+  color: #000;
+  font-weight: 600;
+  text-shadow: 1px 5px 10px #460101;
+  background-color: rgba(210, 204, 204, 0.399);
 }
 
 #jumbotron .infoBox {
@@ -272,11 +281,6 @@ nav ul li:hover {
   display: flex;
 }
 
-.container .episode-image {
-  height: 70px;
-  width: 70px;
-}
-
 .container .card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -321,43 +325,42 @@ nav ul li:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-  width: 80vw;
-  height: 63vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.container #playlist table {
-  width: 100%;
+  width: 90vw;
+  height: auto;
   border-spacing: 30px;
 }
 
-.container #playlist table th,
-.container #playlist table td {
-  padding: 30px;
+.container #playlist th,
+.container #playlist td {
+  padding: 15px;
   vertical-align: middle;
   text-align: left;
-  font-size: 2.5rem;
+  font-size: 1.2rem;
 }
 
-.container #playlist table th {
+.container #playlist th {
   color: #868975;
-  font-size: 0.9em;
+  font-size: 1.5rem;
   padding: 15px;
   cursor: default;
 }
 
-.container #playlist table tr {
+.container #playlist tr {
   cursor: pointer;
   line-height: 2.5rem;
 }
 
-.container #playlist table tr td {
-  font-size: 2rem;
+.container #playlist tr td {
+  font-size: 1.8rem;
   border-top: 1px solid #36372f;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  padding: 30px;
+  padding: 10px;
+}
+
+.container #playlist .episode-image {
+  height: 7rem;
+  width: 7rem;
 }
 
 audio {

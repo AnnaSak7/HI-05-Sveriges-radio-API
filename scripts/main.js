@@ -68,8 +68,8 @@ const init = () => {
   jumbotron.innerHTML = `
     <div id="title">
     <h1>BEDTIME STORIES</h1>
-    <p>for those who find relaxation in terror</p>
-    </div>
+    <p id="terror">for those who find relaxation in terror<p/>
+    <p id="swedish">. . .and who understand Swedish...</p>
 
 `;
 

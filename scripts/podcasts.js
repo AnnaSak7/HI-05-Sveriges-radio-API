@@ -101,12 +101,13 @@ const fillJumbotron = (data) => {
 
 //make base table for the playlist
 const makeTable = () => {
-  container.innerHTML += `<table id="playlist" class="no-select">
+  container.innerHTML += `<table id="playlist" >
   <thead>
     <th>&nbsp;</th>
     <th>Title</th>
     <th><span class="fa fa-clock-o"></span></th>
     <th>Description</th>
+    <th><i class="far fa-play-circle"></i></th>
 
   </thead>
   <tbody id='playlistBody'></tbody>
@@ -119,9 +120,7 @@ const buildPlaylist = (episodes) => {
   for (let i = 0; i < 10; i++) {
     playlistBody.innerHTML += `
             <tr data-index="${i}">
-            <td class="play-pause"><img class='episode-image' src="${
-              episodes[i].imageurl
-            }"></td>
+            <td><img class='episode-image' src="${episodes[i].imageurl}"></td>
 
             <td>${episodes[i].title}</td>
             <td>${secondsToHms(episodes[i].listenpodfile.duration)}</td>
