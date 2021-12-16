@@ -1,8 +1,11 @@
 var P3SerieData;
-var dataArray = [];
+var programDataArray = [];
 var targetPodcast;
 var dataObjects = {};
-
+var clickedID;
+var index;
+var Data;
+//program ids
 const P3Serie = '4947';
 const CreepyPodden = '4845';
 const P3Krim = '5413';
@@ -20,22 +23,22 @@ const fetchProgramData = (program) => {
       console.log('fetching... ', data);
 
       createCards(data.program);
-
-      //storing the data needed later
-
-      dataObjects.id = data.program.id;
-      dataObjects.name = data.program.name;
-      dataObjects.img = data.program.socialimage;
-      dataObjects.url = data.program.url;
-      dataObjects.description = data.program.description;
-      dataArray.push(dataObjects);
+      sortDataInArray(data);
     })
     .catch((error) => {
       console.log(error, 'There has been an error');
     });
 };
 
-const init = () => {
+const sortDataInArray = (data) => {
+  dataObjects.id = data.program.id;
+  dataObjects.name = data.program.name;
+  dataObjects.img = data.program.socialimage;
+  dataObjects.url = data.program.url;
+  dataObjects.description = data.program.description;
+  programDataArray.push(dataObjects);
+};
+const init = async () => {
   jumbotron.innerHTML = `
     <div id="title">
     <h1>BEDTIME STORIES</h1>
@@ -74,7 +77,7 @@ function createCards(program) {
   tableContainer.innerHTML += `
   <div class="card">
   <div>
-  <img class="imgBtn" src="${program.socialimage}" alt="${program.name}" />
+  <img id="${program.id}" class="imgBtn" src="${program.socialimage}" alt="${program.name}" />
   </div>
   <div class='card-description'>
   <p>${program.description}</p>
@@ -89,11 +92,13 @@ function addEventListenerImages() {
   let imgBtn = document.querySelectorAll('.imgBtn');
   //console.log(imgBtn);
   imgBtn.forEach((e) => e.addEventListener('click', onClick));
+  imgBtn.forEach((e) =>
+    e.addEventListener('click', getClickedElement.bind(this))
+  );
 }
 
 function onClick(evt) {
   console.log('evt target alt is ', evt.target.alt);
-  console.log('img array is ', dataArray);
   targetPodcast = evt.target.alt;
   Remover();
   switch (targetPodcast) {
@@ -126,6 +131,15 @@ const Remover = () => {
   container.innerHTML = ``;
   jumbotron.innerHTML = ``;
 };
+
+function getClickedElement(event) {
+  console.log('dataArray is ', programDataArray);
+  clickedAlt = event.target.getAttribute('alt');
+  console.log('clicedID is ', clickedAlt);
+
+  index = programDataArray.map((e) => e.name).indexOf(clickedAlt);
+  console.log('index is ', index);
+}
 
 // $(function() {
 //   $('a.page-scroll').bind('click', function(event) {
