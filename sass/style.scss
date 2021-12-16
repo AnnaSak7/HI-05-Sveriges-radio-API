@@ -1,10 +1,26 @@
+@import './mixin';
+// @import './navbar';
+
+$aqua50: #5fbfa4;
+$aqua25: #a7dccd;
+$metal5: #f3f3f1;
+$metal20: #cfd0c8;
+$metal50: #868975;
+$metal80: #36372f;
+$metal90: #272822;
+
+@font-face {
+  font-family: creepyFont;
+  src: url(../assets/TheNightLamp-rgWep.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style-type: none;
   box-sizing: border-box;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Thasadith', sans-serif;
 }
 body {
   background-color: #131313;
@@ -13,216 +29,393 @@ body {
   align-items: center;
 }
 
-header {
+#header {
+  height: 70px;
   width: 100%;
-  height: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #131313;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  h1 {
+    font-size: 3rem;
+    font-family: creepyFont;
+  }
+}
+#header.fixed {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    li {
+      display: block;
+      //position: relative;
+      text-decoration: none;
+      color: #666;
+      padding: 10px;
+      transition: all 0.3s;
+
+      ul {
+        display: block;
+      }
+    }
+
+    li.current,
+    li:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+nav ul li.has-child::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 25px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(135deg);
+}
+
+/*3階層目を持つliの矢印の設定*/
+nav ul ul li.has-child::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 17px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+/*== 2・3階層目の共通設定 */
+
+/*下の階層を持っているulの指定*/
+nav li.has-child ul {
+  /*絶対配置で位置を指定*/
+  position: absolute;
+  left: 0;
+  top: 62px;
+  z-index: 4;
+  /*形状を指定*/
+  background: #28bfe7;
+  width: 180px;
+  /*はじめは非表示*/
+  visibility: hidden;
+  opacity: 0;
+  /*アニメーション設定*/
+  transition: all 0.3s;
+}
+
+/*hoverしたら表示*/
+nav li.has-child:hover > ul,
+nav li.has-child ul li:hover > ul,
+nav li.has-child:active > ul,
+nav li.has-child ul li:active > ul {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*ナビゲーションaタグの形状*/
+nav li.has-child ul li a {
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.6);
+}
+
+nav li.has-child ul li:last-child a {
+  border-bottom: none;
+}
+
+nav li.has-child ul li a:hover,
+nav li.has-child ul li a:active {
+  background: #3577ca;
 }
 
 #jumbotron {
+  @include flexCenter(column);
   width: 100%;
   height: 50vh;
   background-image: url('../assets/creepywoods.jpg');
+
+  #title {
+    @include flexCenter(column);
+    h1 {
+      font-size: 7rem;
+      font-family: creepyFont;
+    }
+    p {
+      font-size: 3rem;
+      color: #15001c;
+      font-weight: 300;
+      text-shadow: 2px 2px 2px rgb(196, 178, 178);
+    }
+  }
 }
 
-.main-programs {
-  display: flex;
+.container {
+  @include flexCenter(column);
+  h2 {
+    font-size: 5rem;
+    font-family: creepyFont;
+  }
+  .tableContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-programs {
+    display: flex;
+  }
+
+  .episode-image {
+    height: 70px;
+    width: 70px;
+  }
+
+  .card {
+    display: flex;
+    position: relative;
+    .card-description {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #fff;
+      width: 100%;
+
+      transform-style: preserve-3d;
+
+      transform: translate3d(0, 140%, 75px);
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      opacity: 0;
+      z-index: 5;
+    }
+
+    &:hover {
+      img {
+        filter: blur(5px) brightness(50%) grayscale(50%);
+      }
+      .card-description {
+        top: 1rem;
+        opacity: 1;
+      }
+    }
+  }
+  // @keyframes spin-art {
+  //   0% {
+  //     transform: translate(-50%, -50%) rotate(0deg);
+  //   }
+  //   100% {
+  //     transform: translate(-50%, -50%) rotate(360deg);
+  //   }
+  // }
+
+  // *,
+  // *:before,
+  // *:after,
+  // *:focus,
+  // *:hover {
+  //   -webkit-box-sizing: border-box;
+  //   -moz-box-sizing: border-box;
+  //   box-sizing: border-box;
+  // }
+
+  // body {
+  //   background: $metal90;
+  //   color: $metal20;
+  //   font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  //   font-size: 16px;
+  // }
+
+  // .no-select {
+  //   -webkit-touch-callout: none; /* iOS Safari */
+  //   -webkit-user-select: none; /* Safari */
+  //   -khtml-user-select: none; /* Konqueror HTML */
+  //   -moz-user-select: none; /* Firefox */
+  //   -ms-user-select: none; /* Internet Explorer/Edge */
+  //   user-select: none;
+  // }
+
+  // #art {
+  //   display: flex;
+  //   height: 22vh;
+  //   box-shadow: 0 3px 10px 0 rgba(darken($metal90, 7%), 0.3);
+  //   overflow: hidden;
+
+  //   .player {
+  //     position: relative;
+  //     width: 20vw;
+  //     display: flex;
+  //     justify-content: space-around;
+  //     align-items: center;
+  //     align-content: center;
+
+  //     img {
+  //       position: absolute;
+  //       width: 90%;
+  //       height: calc(20vw * 0.9);
+  //       border-radius: 50%;
+  //       transform-origin: 50% 50%;
+  //     }
+
+  //     &:after {
+  //       content: '';
+  //       position: absolute;
+  //       z-index: 10;
+  //       top: calc(50% - 2vw);
+  //       left: calc(50% - 2vw);
+  //       background: $metal90;
+  //       height: 4vw;
+  //       width: 4vw;
+  //       border-radius: 50%;
+  //     }
+
+  //     &.playing {
+  //       img {
+  //         top: 50%;
+  //         left: 50%;
+  //         animation: spin-art 3000ms linear infinite;
+  //       }
+  //     }
+  //   }
+  //   .wide {
+  //     width: 80vw;
+
+  //     img {
+  //       height: 130%;
+  //       width: 100%;
+  //     }
+  //   }
+  // }
+
+  #playlist {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 80vw;
+    height: 63vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    table {
+      width: 100%;
+      //border-spacing: 9px;
+
+      th,
+      td {
+        padding: 15px 15%;
+        vertical-align: middle;
+        text-align: left;
+        font-size: 2.5rem;
+      }
+
+      th {
+        color: $metal50;
+        font-size: 0.9em;
+        padding-top: 15px;
+        cursor: default;
+      }
+
+      tr {
+        cursor: pointer;
+        line-height: 2.5rem;
+
+        td {
+          border-top: 1px solid $metal80;
+          transition: background 0.3s ease;
+
+          &.play-pause {
+            position: relative;
+            height: 40px;
+            width: 40px;
+
+            &:before {
+              position: absolute;
+              content: '\f04b';
+              font-family: FontAwesome;
+              height: 26px;
+              width: 26px;
+              top: calc(50% - 13px);
+              left: calc(50% - 13px);
+              z-index: 3;
+              font-size: 1em;
+              color: $metal5;
+              border-radius: 50%;
+              padding: 5px;
+              padding-left: 9px;
+              box-shadow: inset 0 0 0 1px $metal5;
+            }
+
+            &:after {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              content: '';
+              background: rgba($metal80, 0.75);
+            }
+
+            &:before,
+            &:after {
+              visibility: hidden;
+            }
+
+            img {
+              height: 40px;
+              width: 40px;
+            }
+          }
+          &:nth-child(2) {
+            color: $metal5;
+          }
+        }
+
+        &.playing td {
+          background: darken($metal90, 5%);
+          color: $aqua50;
+
+          &:nth-child(2) {
+            color: $aqua25;
+          }
+        }
+
+        &:hover {
+          td {
+            background: $metal80;
+
+            &.play-pause {
+              &:before,
+              &:after {
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
-// $aqua50: #5fbfa4;
-// $aqua25: #a7dccd;
-// $metal5: #f3f3f1;
-// $metal20: #cfd0c8;
-// $metal50: #868975;
-// $metal80: #36372f;
-// $metal90: #272822;
-
-// @keyframes spin-art {
-//   0% {
-//     transform: translate(-50%, -50%) rotate(0deg);
-//   }
-//   100% {
-//     transform: translate(-50%, -50%) rotate(360deg);
-//   }
-// }
-
-// *,
-// *:before,
-// *:after,
-// *:focus,
-// *:hover {
-//   -webkit-box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-// }
-
-// body {
-//   background: $metal90;
-//   color: $metal20;
-//   font-family: 'helvetica neue', helvetica, arial, sans-serif;
-//   font-size: 16px;
-// }
-
-// .no-select {
-//   -webkit-touch-callout: none; /* iOS Safari */
-//   -webkit-user-select: none; /* Safari */
-//   -khtml-user-select: none; /* Konqueror HTML */
-//   -moz-user-select: none; /* Firefox */
-//   -ms-user-select: none; /* Internet Explorer/Edge */
-//   user-select: none;
-// }
-
-// #art {
-//   display: flex;
-//   height: 22vh;
-//   box-shadow: 0 3px 10px 0 rgba(darken($metal90, 7%), 0.3);
-//   overflow: hidden;
-
-//   .player {
-//     position: relative;
-//     width: 20vw;
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//     align-content: center;
-
-//     img {
-//       position: absolute;
-//       width: 90%;
-//       height: calc(20vw * 0.9);
-//       border-radius: 50%;
-//       transform-origin: 50% 50%;
-//     }
-
-//     &:after {
-//       content: '';
-//       position: absolute;
-//       z-index: 10;
-//       top: calc(50% - 2vw);
-//       left: calc(50% - 2vw);
-//       background: $metal90;
-//       height: 4vw;
-//       width: 4vw;
-//       border-radius: 50%;
-//     }
-
-//     &.playing {
-//       img {
-//         top: 50%;
-//         left: 50%;
-//         animation: spin-art 3000ms linear infinite;
-//       }
-//     }
-//   }
-//   .wide {
-//     width: 80vw;
-
-//     img {
-//       height: 130%;
-//       width: 100%;
-//     }
-//   }
-// }
-
-// #playlist {
-//   width: 100vw;
-//   height: 63vh;
-//   overflow-y: scroll;
-//   overflow-x: hidden;
-
-//   table {
-//     width: 100%;
-
-//     th,
-//     td {
-//       padding: 10px 3%;
-//       vertical-align: middle;
-//       text-align: left;
-//     }
-
-//     th {
-//       color: $metal50;
-//       font-size: 0.9em;
-//       padding-top: 15px;
-//       cursor: default;
-//     }
-
-//     tr {
-//       cursor: pointer;
-
-//       td {
-//         border-top: 1px solid $metal80;
-//         transition: background 0.3s ease;
-
-//         &.play-pause {
-//           position: relative;
-//           height: 40px;
-//           width: 40px;
-
-//           &:before {
-//             position: absolute;
-//             content: '\f04b';
-//             font-family: FontAwesome;
-//             height: 26px;
-//             width: 26px;
-//             top: calc(50% - 13px);
-//             left: calc(50% - 13px);
-//             z-index: 3;
-//             font-size: 1em;
-//             color: $metal5;
-//             border-radius: 50%;
-//             padding: 5px;
-//             padding-left: 9px;
-//             box-shadow: inset 0 0 0 1px $metal5;
-//           }
-
-//           &:after {
-//             position: absolute;
-//             top: 0;
-//             left: 0;
-//             height: 100%;
-//             width: 100%;
-//             content: '';
-//             background: rgba($metal80, 0.75);
-//           }
-
-//           &:before,
-//           &:after {
-//             visibility: hidden;
-//           }
-
-//           img {
-//             height: 40px;
-//             width: 40px;
-//           }
-//         }
-//         &:nth-child(2) {
-//           color: $metal5;
-//         }
-//       }
-
-//       &.playing td {
-//         background: darken($metal90, 5%);
-//         color: $aqua50;
-
-//         &:nth-child(2) {
-//           color: $aqua25;
-//         }
-//       }
-
-//       &:hover {
-//         td {
-//           background: $metal80;
-
-//           &.play-pause {
-//             &:before,
-//             &:after {
-//               visibility: visible;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 
 // #interactions {
 //   position: fixed;

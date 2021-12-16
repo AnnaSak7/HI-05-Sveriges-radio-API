@@ -1,3 +1,8 @@
+@font-face {
+  font-family: creepyFont;
+  src: url(../assets/TheNightLamp-rgWep.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +10,7 @@
   list-style-type: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Thasadith', sans-serif;
 }
 
 body {
@@ -19,20 +24,291 @@ body {
           align-items: center;
 }
 
-header {
+#header {
+  height: 70px;
   width: 100%;
-  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #131313;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+#header h1 {
+  font-size: 3rem;
+  font-family: creepyFont;
+}
+
+#header.fixed {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav ul li {
+  display: block;
+  text-decoration: none;
+  color: #666;
+  padding: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+nav ul li.current,
+nav ul li:hover {
+  color: #fff;
+  cursor: pointer;
 }
 
 #jumbotron {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   height: 50vh;
   background-image: url("../assets/creepywoods.jpg");
 }
 
-.main-programs {
+#jumbotron #title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#jumbotron #title h1 {
+  font-size: 7rem;
+  font-family: creepyFont;
+}
+
+#jumbotron #title p {
+  font-size: 3rem;
+  color: #15001c;
+  font-weight: 300;
+  text-shadow: 2px 2px 2px #c4b2b2;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container h2 {
+  font-size: 5rem;
+  font-family: creepyFont;
+}
+
+.container .tableContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .main-programs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .episode-image {
+  height: 70px;
+  width: 70px;
+}
+
+.container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.container .card .card-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 140%, 75px);
+          transform: translate3d(0, 140%, 75px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 5;
+}
+
+.container .card:hover img {
+  -webkit-filter: blur(5px) brightness(50%) grayscale(50%);
+          filter: blur(5px) brightness(50%) grayscale(50%);
+}
+
+.container .card:hover .card-description {
+  top: 1rem;
+  opacity: 1;
+}
+
+.container #playlist {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: 80vw;
+  height: 63vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.container #playlist table {
+  width: 100%;
+}
+
+.container #playlist table th,
+.container #playlist table td {
+  padding: 15px 15%;
+  vertical-align: middle;
+  text-align: left;
+  font-size: 2.5rem;
+}
+
+.container #playlist table th {
+  color: #868975;
+  font-size: 0.9em;
+  padding-top: 15px;
+  cursor: default;
+}
+
+.container #playlist table tr {
+  cursor: pointer;
+  line-height: 2.5rem;
+}
+
+.container #playlist table tr td {
+  border-top: 1px solid #36372f;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.container #playlist table tr td.play-pause {
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.container #playlist table tr td.play-pause:before {
+  position: absolute;
+  content: '\f04b';
+  font-family: FontAwesome;
+  height: 26px;
+  width: 26px;
+  top: calc(50% - 13px);
+  left: calc(50% - 13px);
+  z-index: 3;
+  font-size: 1em;
+  color: #f3f3f1;
+  border-radius: 50%;
+  padding: 5px;
+  padding-left: 9px;
+  -webkit-box-shadow: inset 0 0 0 1px #f3f3f1;
+          box-shadow: inset 0 0 0 1px #f3f3f1;
+}
+
+.container #playlist table tr td.play-pause:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background: rgba(54, 55, 47, 0.75);
+}
+
+.container #playlist table tr td.play-pause:before, .container #playlist table tr td.play-pause:after {
+  visibility: hidden;
+}
+
+.container #playlist table tr td.play-pause img {
+  height: 40px;
+  width: 40px;
+}
+
+.container #playlist table tr td:nth-child(2) {
+  color: #f3f3f1;
+}
+
+.container #playlist table tr.playing td {
+  background: #1a1a16;
+  color: #5fbfa4;
+}
+
+.container #playlist table tr.playing td:nth-child(2) {
+  color: #a7dccd;
+}
+
+.container #playlist table tr:hover td {
+  background: #36372f;
+}
+
+.container #playlist table tr:hover td.play-pause:before, .container #playlist table tr:hover td.play-pause:after {
+  visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */

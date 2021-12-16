@@ -56,17 +56,17 @@ fetchApi();
 //     img.src = data.channels[i].image.toString();
 //     document.getElementById('app').appendChild(img);
 
-//     //add audio
-//     // add_audio(data)
-//     let audio = document.createElement('audio');
-//     // img.addEventListener('onclick', audio.play());
-//     audio.controls = true;
-//     // audio.play();
-//     let source = document.createElement('source');
-//     source.src = data.channels[i].liveaudio.url.toString();
-//     source.type = 'audio/mpeg';
-//     audio.append(source);
-//     document.getElementById('app').appendChild(audio);
+// //add audio
+// // add_audio(data)
+// let audio = document.createElement('audio');
+// // img.addEventListener('onclick', audio.play());
+// audio.controls = true;
+// // audio.play();
+// let source = document.createElement('source');
+// source.src = data.channels[i].liveaudio.url.toString();
+// source.type = 'audio/mpeg';
+// audio.append(source);
+// document.getElementById('app').appendChild(audio);
 
 //     console.log(data.channels[i].liveaudio.url);
 

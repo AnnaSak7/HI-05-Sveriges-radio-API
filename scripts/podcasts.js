@@ -1,3 +1,4 @@
+//Change the display of time from seconds
 function secondsToHms(seconds) {
   const time = {
     hours: String(Math.floor(Number(seconds) / 3600)),
@@ -22,34 +23,108 @@ function secondsToHms(seconds) {
   }
 }
 
+const indexOfTargetPodcast = (array) => {
+  console.log('dataArray is ', array);
+  console.log('targetPodCast is ', targetPodcast);
+  for (let i = 0; i < array.length; i++) {
+    if (targetPodcast === array.name) {
+      console.log(array.name);
+    }
+  }
+};
+
+const indexOfObject = (array, target) => {
+  target === array.name;
+};
+
+const fillJumbotron = (array) => {
+  console.log('fillJumbo', array);
+
+  // let index = array.findIndex(indexOfOfject(array, targetPodcast));
+  // console.log('index is ', index);
+
+  jumbotron.innerHTML = `
+    <div>
+    <h1>Something</h1>
+    <p>Sveriges Radio</p>
+
+
+    </div>
+    <img src="${array[index].img}" alt=" "/>
+  `;
+};
+
+//make base table for the playlist
 const makeTable = () => {
   container.innerHTML += `<table id="playlist" class="no-select">
   <thead>
     <th>&nbsp;</th>
     <th>Title</th>
-    <th>Artist</th>
-    <th>Album</th>
+    <th>Description</th>
     <th><span class="fa fa-clock-o"></span></th>
   </thead>
   <tbody id='playlistBody'></tbody>
 </table>`;
 };
 
-const getIndexOfImgDataArray = () => {};
-
+//playlist and attaching it to table body
 const buildPlaylist = (episodes) => {
   const playlistBody = document.querySelector('#playlistBody');
   for (let i = 0; i < 10; i++) {
     playlistBody.innerHTML += `
             <tr data-index="${i}">
-            <td class="play-pause"><img src="${episodes[i].imageurl}"></td>
+            <td class="play-pause"><img class='episode-image' src="${
+              episodes[i].imageurl
+            }"></td>
             <td>${episodes[i].title}</td>
             <td>${episodes[i].description}</td>
-            <td>${episodes[i].program.name}</td>
+
             <td>${secondsToHms(episodes[i].listenpodfile.duration)}</td>
           </tr>
     `;
   }
+  //buildPlayerBar();
+};
+
+//build play-bar
+const buildPlayBar = () => {
+  const footer = document.getElementById('interactions');
+  footer.innerHTML = `
+  <div class="tracking-wrap">
+        <span class="song-current-time">--:--</span>
+        <input
+          class="tracking-slider range"
+          type="range"
+          min="0"
+          value="0"
+          step="1"
+        />
+        <span class="song-length">--:--</span>
+      </div>
+
+      <div class="controls-bar">
+        <section id="controls">
+          <span class="fa fa-random shuffle"></span>
+          <span class="fa fa-fast-backward previous"></span>
+          <span class="fa fa-play play-pause"></span>
+          <span class="fa fa-fast-forward next"></span>
+          <span class="fa fa-repeat repeat on"></span>
+        </section>
+
+        <div id="volume">
+          <span class="fa fa-volume-down"></span>
+          <input
+            class="volume-slider range"
+            type="range"
+            max="1"
+            min="0"
+            step="0.01"
+            value="0.8"
+          />
+          <span class="fa fa-volume-up"></span>
+        </div>
+      </div>
+  `;
 };
 
 const episodeArray = () => {
@@ -81,14 +156,23 @@ const fetchEpisodesData = (program) => {
 function creepypoddenInit() {
   makeTable();
   fetchEpisodesData(CreepyPodden);
+  jumbotron.innerHTML = `<h1> whatz up <h1>`;
 }
 
 const krimInit = () => {
   makeTable();
   fetchEpisodesData(P3Krim);
+  fillJumbotron(dataArray);
 };
 
 const serieInit = () => {
   makeTable();
   fetchEpisodesData(P3Serie);
+  fillJumbotron(dataArray);
+};
+
+const dystopiaInit = () => {
+  makeTable();
+  fetchEpisodesData(Dystopia);
+  fillJumbotron(dataArray);
 };
