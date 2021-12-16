@@ -1,10 +1,11 @@
 var P3SerieData;
-var programDataArray = [];
-var targetPodcast;
-var dataObjects = {};
-var clickedID;
-var index;
+let targetPodcast;
+let clickedID;
+let clickedNumber;
 var Data;
+const programs = {};
+let imgurl;
+let podname;
 
 const container = document.querySelector('.container');
 
@@ -16,28 +17,43 @@ const CreepyPodden = '4845';
 const P3Krim = '5413';
 const Dystopia = '5188';
 
-const fetchProgramData = (program) => {
-  let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
-  fetch(URL)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('fetching... ', data);
+// const fetchProgramData = (program) => {
+//   let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
+//   fetch(URL)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log('fetching... ', data);
 
-      createCards(data.program);
-      sortDataInArray(data);
-    })
-    .catch((error) => {
-      console.log(error, 'There has been an error');
-    });
-};
+//       createCards(data.program);
+//       sortDataInArray(data);
+//     })
+//     .catch((error) => {
+//       console.log(error, 'There has been an error');
+//     });
+// };
+
+async function fetchProgramData(program) {
+  try {
+    let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    console.log('fetching...', data);
+    createCards(data.program);
+    sortDataInArray(data);
+  } catch (error) {
+    console.log('error : ', error);
+  }
+}
 
 const sortDataInArray = (data) => {
+  const dataObjects = {};
   dataObjects.id = data.program.id;
   dataObjects.name = data.program.name;
   dataObjects.img = data.program.socialimage;
   dataObjects.url = data.program.url;
   dataObjects.description = data.program.description;
-  programDataArray.push(dataObjects);
+  programs[data.program.id] = dataObjects;
+  console.log('programs', programs);
 };
 
 function fetchInit() {
@@ -142,10 +158,10 @@ const Remover = () => {
 };
 
 function getClickedElement(event) {
-  console.log('dataArray is ', programDataArray);
-  clickedAlt = event.target.getAttribute('alt');
-  console.log('clickedID is ', clickedAlt);
-
-  index = programDataArray.map((e) => e.name).indexOf(clickedAlt);
-  console.log('index is ', index);
+  clickedID = event.target.getAttribute('id');
+  clickedNumber = parseInt(clickedID);
+  podname = programs[clickedID].name;
+  imgurl = programs[clickedNumber].img;
+  console.log('imgurl is ', imgurl);
+  console.log('podname is ', podname);
 }

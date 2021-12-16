@@ -15,30 +15,43 @@ const fetchEpisodesData = (program) => {
     });
 };
 
+async function fetchProgramData2(program) {
+  try {
+    let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    console.log('fetching...', data);
+    fillJumbotron(data);
+  } catch (error) {
+    console.log('error : ', error);
+  }
+}
+
 //INIT TO EACH PROGRAM PAGE
 
 function creepypoddenInit() {
   makeTable();
   fetchEpisodesData(CreepyPodden);
-  fillJumbotron(programDataArray);
+
+  fetchProgramData2(CreepyPodden);
 }
 
 const krimInit = () => {
   makeTable();
   fetchEpisodesData(P3Krim);
-  fillJumbotron(programDataArray);
+  fetchProgramData2(P3Krim);
 };
 
 const serieInit = () => {
   makeTable();
   fetchEpisodesData(P3Serie);
-  fillJumbotron(programDataArray);
+  fetchProgramData2(P3Serie);
 };
 
 const dystopiaInit = () => {
   makeTable();
   fetchEpisodesData(Dystopia);
-  fillJumbotron(programDataArray);
+  fetchProgramData2(Dystopia);
 };
 
 /////////////////////////////////////////
@@ -69,16 +82,19 @@ function secondsToHms(seconds) {
 }
 
 // FILL THE JUMBOTRON WITH PROGRAM INFO
-const fillJumbotron = (array) => {
-  console.log('fillJumbo', array);
-
+const fillJumbotron = (data) => {
   jumbotron.innerHTML = `
     <div class='infoBox'>
       <div class="programInfoBox">
-        <h1>Podcast</h1>
-        <p>Sveriges Radio</p>
+        <h1>${data.program.name}</h1>
+        <p>${data.program.description}</p>
+        <div class='btnContainer'>
+          <a href="https://sverigesradio.se/"><img src="./assets/sr01.png" alt='sveriges radio'/></a>
+          <button ><a href="${data.program.programurl}">Program Page</a></button>
+        </div>
       </div>
-      <img class="imgInJumbotron" src="${array[0].img}" alt=" "/>
+
+      <img class="imgInJumbotron" src="${data.program.socialimage}" alt="${data.program.name}"/>
     </div>
   `;
 };
@@ -89,8 +105,9 @@ const makeTable = () => {
   <thead>
     <th>&nbsp;</th>
     <th>Title</th>
-    <th>Description</th>
     <th><span class="fa fa-clock-o"></span></th>
+    <th>Description</th>
+
   </thead>
   <tbody id='playlistBody'></tbody>
 </table>`;
@@ -107,9 +124,10 @@ const buildPlaylist = (episodes) => {
             }"></td>
 
             <td>${episodes[i].title}</td>
+            <td>${secondsToHms(episodes[i].listenpodfile.duration)}</td>
             <td>${episodes[i].description}</td>
 
-            <td>${secondsToHms(episodes[i].listenpodfile.duration)}</td>
+
             <td><audio controls><source src="${
               episodes[i].listenpodfile.url
             }" type="audio/mp3"></audio></td>

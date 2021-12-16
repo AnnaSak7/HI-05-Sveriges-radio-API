@@ -155,31 +155,80 @@ nav ul li:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 10rem;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  margin: 0 1rem 0 2.5rem;
 }
 
 #jumbotron .infoBox .programInfoBox h1 {
   font-size: 5rem;
+  font-family: 'Bebas Neue', cursive;
 }
 
 #jumbotron .infoBox .programInfoBox p {
-  font-size: 3rem;
+  font-size: 2rem;
+  font-family: 'Bebas Neue', cursive;
+  background-color: #1313139f;
+  border-radius: 10px;
+  padding: 0 1rem;
 }
 
-#jumbotron .infoBox img {
+#jumbotron .infoBox .programInfoBox .btnContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+}
+
+#jumbotron .infoBox .programInfoBox .btnContainer img {
+  width: 250px;
+  height: auto;
+  z-index: 30;
+}
+
+#jumbotron .infoBox .programInfoBox .btnContainer img:hover {
+  -webkit-filter: brightness(50%) grayscale(50%);
+          filter: brightness(50%) grayscale(50%);
+}
+
+#jumbotron .infoBox .programInfoBox .btnContainer button {
+  width: 250px;
+  height: 75px;
+  margin-right: 3rem;
+  background-color: #130000;
+}
+
+#jumbotron .infoBox .programInfoBox .btnContainer button:hover {
+  -webkit-filter: brightness(50%) grayscale(50%);
+          filter: brightness(50%) grayscale(50%);
+}
+
+#jumbotron .infoBox .programInfoBox .btnContainer button a {
+  font-size: 2rem;
+  font-family: 'Bebas Neue', cursive;
+  color: #fff;
+  padding: 0 20px;
+}
+
+#jumbotron .infoBox .imgInJumbotron {
   width: 20rem;
   height: 20rem;
-  margin: 5rem 10rem 0 10rem;
+  margin: 2.5rem 8rem 0 5rem;
 }
 
 .container {
@@ -280,11 +329,12 @@ nav ul li:hover {
 
 .container #playlist table {
   width: 100%;
+  border-spacing: 30px;
 }
 
 .container #playlist table th,
 .container #playlist table td {
-  padding: 15px 15%;
+  padding: 30px;
   vertical-align: middle;
   text-align: left;
   font-size: 2.5rem;
@@ -293,7 +343,7 @@ nav ul li:hover {
 .container #playlist table th {
   color: #868975;
   font-size: 0.9em;
-  padding-top: 15px;
+  padding: 15px;
   cursor: default;
 }
 
@@ -307,5 +357,11 @@ nav ul li:hover {
   border-top: 1px solid #36372f;
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
+  padding: 30px;
+}
+
+audio {
+  width: 300px;
+  height: 35px;
 }
 /*# sourceMappingURL=style.css.map */
