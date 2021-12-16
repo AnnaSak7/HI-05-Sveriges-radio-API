@@ -27,6 +27,8 @@ body {
 #header {
   height: 70px;
   width: 100%;
+  position: fixed;
+  z-index: 50;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,13 +47,6 @@ body {
 #header h1 {
   font-size: 3rem;
   font-family: creepyFont;
-}
-
-#header.fixed {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
 }
 
 nav ul {
@@ -182,9 +177,9 @@ nav ul li:hover {
 }
 
 #jumbotron .infoBox img {
-  width: 25rem;
-  height: 25rem;
-  margin: 0 10rem;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem 10rem 0 10rem;
 }
 
 .container {
