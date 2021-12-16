@@ -5,6 +5,7 @@ var dataObjects = {};
 var clickedID;
 var index;
 var Data;
+
 //program ids
 const P3Serie = '4947';
 const CreepyPodden = '4845';
@@ -38,6 +39,8 @@ const sortDataInArray = (data) => {
   dataObjects.description = data.program.description;
   programDataArray.push(dataObjects);
 };
+
+//INITIALIZING
 const init = async () => {
   jumbotron.innerHTML = `
     <div id="title">
@@ -71,7 +74,7 @@ const programsBtn = document.getElementById('programs');
 
 const listenNowBtn = document.getElementById('listenNow');
 
-// shows imgs
+// SHOWS IMAGES
 function createCards(program) {
   var tableContainer = document.querySelector('.tableContainer');
   tableContainer.innerHTML += `
@@ -87,7 +90,7 @@ function createCards(program) {
   addEventListenerImages();
 }
 
-// add EventListener to imgBtn class
+// ADD EventListener to imgBtn class
 function addEventListenerImages() {
   let imgBtn = document.querySelectorAll('.imgBtn');
   //console.log(imgBtn);
@@ -97,6 +100,7 @@ function addEventListenerImages() {
   );
 }
 
+// EVENTLISTNER TO MOVE TO THE CHOSEN PROGRAM
 function onClick(evt) {
   console.log('evt target alt is ', evt.target.alt);
   targetPodcast = evt.target.alt;
@@ -118,12 +122,6 @@ function onClick(evt) {
       dystopiaInit();
       break;
   }
-  // if (evt.target.alt === 'Creepypodden i P3') {
-  //   creepypoddenInit();
-  // } else if (evt.target.alt === 'P3 Krim') {
-  //   krimInit();
-  // } else if (evt.target.alt === 'P3 Serie') {
-  //   serieInit();
 }
 
 //REMOVE ELEMENTS IN THE PAGE TO GO TO THE NEXT PAGE
@@ -140,23 +138,3 @@ function getClickedElement(event) {
   index = programDataArray.map((e) => e.name).indexOf(clickedAlt);
   console.log('index is ', index);
 }
-
-// $(function() {
-//   $('a.page-scroll').bind('click', function(event) {
-//       var $anchor = $(this);
-//       $('html, body').stop().animate({
-//           scrollTop: $($anchor.attr('href')).offset().top
-//       }, 1500, 'easeInOutExpo');
-//       event.preventDefault();
-//   });
-// });
-
-// // Highlight the top nav as scrolling occurs
-// $('body').scrollspy({
-//   target: '.navbar-fixed-top'
-// })
-
-// // Closes the Responsive Menu on Menu Item Click
-// $('.navbar-collapse ul li a').click(function() {
-//   $('.navbar-toggle:visible').click();
-// });
