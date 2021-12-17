@@ -8,7 +8,7 @@ let imgurl;
 let podname;
 
 const container = document.querySelector('.container');
-
+const container2 = document.querySelector('.container2');
 const jumbotron = document.getElementById('jumbotron');
 
 //program ids
@@ -78,16 +78,59 @@ const init = () => {
   <div class="tableContainer"></div>
   `;
 
-  fetchInit();
+  firstFetchInit();
 };
 
 init();
 
-async function fetchInit() {
+async function firstFetchInit() {
   fetchProgramData(CreepyPodden);
   fetchProgramData(P3Krim);
   fetchProgramData(P3Serie);
   fetchProgramData(Dystopia);
+}
+
+async function fetchProgramDataForListenNow(program) {
+  try {
+    let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    console.log('fetching...', data);
+    createCardsForListenNow(data);
+  } catch (error) {
+    console.log('error : ', error);
+  }
+}
+// CREATE LISTENNOW PAGE CARDS WITH PROGRAM INFO
+const createCardsForListenNow = (data) => {
+  container2.innerHTML += `
+    <div class='listenNowInfoBox'>
+
+      <img class="imgInListenNow" src="${data.episodes[0].imageurl}" alt="${data.episodes[0].program.name}"/>
+
+      <div class="episodeInfoBox">
+        <h1>${data.episodes[0].program.name}</h1>
+        <h3>${data.episodes[0].title}<h3>
+        <p>${data.episodes[0].description}</p>
+
+        <div class='btnAudioContainer'>
+          <audio controls><source src="${data.episodes[0].listenpodfile.url}" type="audio/mp3"></audio>
+          <button><a href="${data.episodes[0].url}">Episode Page</a></button>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+async function listenNowFetchInit() {
+  jumbotron.innerHTML = `
+  <div id="title">
+  <h1>Latest Nightmare You Wish For ...</h1>
+`;
+  fetchProgramDataForListenNow(CreepyPodden);
+  fetchProgramDataForListenNow(P3Krim);
+  fetchProgramDataForListenNow(P3Serie);
+  fetchProgramDataForListenNow(Dystopia);
 }
 
 //EventListener to nav btns
@@ -100,6 +143,10 @@ homeBtn.addEventListener('click', () => {
 const programsBtn = document.getElementById('programs');
 
 const listenNowBtn = document.getElementById('listenNow');
+listenNowBtn.addEventListener('click', () => {
+  Remover();
+  listenNowFetchInit();
+});
 
 // SHOWS IMAGES
 function createCards(program) {
@@ -154,6 +201,7 @@ function onClick(evt) {
 //REMOVE ELEMENTS IN THE PAGE TO GO TO THE NEXT PAGE
 const Remover = () => {
   container.innerHTML = ``;
+  container2.innerHTML = ``;
   jumbotron.innerHTML = ``;
 };
 

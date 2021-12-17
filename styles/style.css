@@ -24,6 +24,11 @@ body {
           align-items: center;
 }
 
+audio {
+  width: 300px;
+  height: 35px;
+}
+
 #header {
   height: 70px;
   width: 100%;
@@ -363,8 +368,123 @@ nav ul li:hover {
   width: 7rem;
 }
 
-audio {
+.container2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Bebas Neue', cursive;
+  margin-top: 2rem;
+}
+
+.container2 .listenNowInfoBox {
+  width: 80vw;
+  height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 2rem;
+}
+
+.container2 .listenNowInfoBox .imgInListenNow {
   width: 300px;
-  height: 35px;
+  height: 300px;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-left: 1.5rem;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.8rem;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: #666;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox p {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  color: #868975;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer button {
+  width: 250px;
+  height: 75px;
+  margin-left: 3rem;
+  background-color: #130000;
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer button:hover {
+  -webkit-filter: brightness(50%) grayscale(50%);
+          filter: brightness(50%) grayscale(50%);
+}
+
+.container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer button a {
+  font-size: 2rem;
+  font-family: 'Bebas Neue', cursive;
+  color: #fff;
+  padding: 0 20px;
 }
 /*# sourceMappingURL=style.css.map */

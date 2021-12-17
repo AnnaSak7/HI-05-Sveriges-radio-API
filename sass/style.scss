@@ -29,6 +29,11 @@ body {
   align-items: center;
 }
 
+audio {
+  width: 300px;
+  height: 35px;
+}
+
 #header {
   height: 70px;
   width: 100%;
@@ -47,12 +52,8 @@ body {
     font-family: creepyFont;
   }
 }
-// #header.fixed {
-//   position: fixed;
-//   z-index: 999;
-//   top: 0;
-//   left: 0;
-// }
+
+///// navbar
 nav {
   ul {
     list-style: none;
@@ -89,6 +90,7 @@ nav {
   }
 }
 
+///// jumbotron
 #jumbotron {
   @include flexCenter(column);
   width: 100%;
@@ -178,6 +180,7 @@ nav {
   }
 }
 
+///// Programs
 .container {
   @include flexCenter(column);
   h2 {
@@ -273,7 +276,62 @@ nav {
   }
 }
 
-audio {
-  width: 300px;
-  height: 35px;
+// Listen Now Page
+.container2 {
+  @include flexCenter(column);
+  font-family: 'Bebas Neue', cursive;
+  margin-top: 2rem;
+
+  .listenNowInfoBox {
+    width: 80vw;
+    height: 40vh;
+    @include flexCenter(row);
+    padding: 2rem;
+
+    .imgInListenNow {
+      width: 300px;
+      height: 300px;
+    }
+
+    .episodeInfoBox {
+      @include flexCenter(column);
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding-left: 1.5rem;
+      h1 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2.8rem;
+      }
+      h3 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2rem;
+        color: #666;
+      }
+      p {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 1.5rem;
+        color: #868975;
+      }
+      .btnAudioContainer {
+        @include flexCenter(row);
+        justify-content: space-between;
+        margin-top: 1rem;
+        button {
+          width: 250px;
+          height: 75px;
+          margin-left: 3rem;
+          &:hover {
+            filter: brightness(50%) grayscale(50%);
+          }
+          background-color: #130000;
+          a {
+            font-size: 2rem;
+            font-family: 'Bebas Neue', cursive;
+            color: #fff;
+            padding: 0 20px;
+          }
+        }
+      }
+    }
+  }
 }
