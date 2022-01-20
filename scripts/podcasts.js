@@ -1,18 +1,16 @@
-const fetchEpisodesData = (program) => {
-  let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
+const fetchEpisodesData = async (program) => {
+  try {
+    let URL = `https://api.sr.se/api/v2/episodes/index?pagination=false&format=json&programid=${program}`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    console.log('fetching... ', data);
 
-  fetch(URL)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('fetching... ', data);
-
-      let episodes = data.episodes;
-      console.log('episodes are ', episodes);
-      buildPlaylist(episodes);
-    })
-    .catch((error) => {
-      console.log(error, 'There has been an error');
-    });
+    let episodes = data.episodes;
+    console.log('episodes are ', episodes);
+    buildPlaylist(episodes);
+  } catch (error) {
+    console.log(error, 'There has been an error');
+  }
 };
 
 async function fetchProgramData2(program) {
@@ -103,12 +101,13 @@ const fillJumbotron = (data) => {
 const makeTable = () => {
   container.innerHTML += `<table id="playlist" >
   <thead>
+    <tr>
     <th>&nbsp;</th>
     <th>Title</th>
     <th><span class="fa fa-clock-o"></span></th>
     <th>Description</th>
     <th><i class="far fa-play-circle"></i></th>
-
+    </tr>
   </thead>
   <tbody id='playlistBody'></tbody>
 </table>`;

@@ -9,7 +9,7 @@
   text-decoration: none;
   list-style-type: none;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: 'Thasadith', sans-serif;
 }
 
@@ -17,11 +17,11 @@ body {
   background-color: #131313;
   color: #ccc5b9;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 audio {
@@ -38,11 +38,11 @@ audio {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #131313;
   color: #fff;
   text-align: center;
@@ -60,8 +60,8 @@ nav ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 nav ul li {
@@ -97,18 +97,18 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   width: 100%;
   height: 50vh;
-  background-image: url("../assets/creepywoods.jpg");
+  background-image: url('../assets/creepywoods.jpg');
 }
 
 #jumbotron #title {
@@ -116,15 +116,15 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 #jumbotron #title h1 {
@@ -154,15 +154,15 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 #jumbotron .infoBox .programInfoBox {
@@ -171,11 +171,11 @@ nav ul li:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  -ms-flex-pack: left;
+  justify-content: left;
   margin: 0 1rem 0 2.5rem;
 }
 
@@ -198,14 +198,14 @@ nav ul li:hover {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 2rem;
 }
 
@@ -217,7 +217,7 @@ nav ul li:hover {
 
 #jumbotron .infoBox .programInfoBox .btnContainer img:hover {
   -webkit-filter: brightness(50%) grayscale(50%);
-          filter: brightness(50%) grayscale(50%);
+  filter: brightness(50%) grayscale(50%);
 }
 
 #jumbotron .infoBox .programInfoBox .btnContainer button {
@@ -229,7 +229,7 @@ nav ul li:hover {
 
 #jumbotron .infoBox .programInfoBox .btnContainer button:hover {
   -webkit-filter: brightness(50%) grayscale(50%);
-          filter: brightness(50%) grayscale(50%);
+  filter: brightness(50%) grayscale(50%);
 }
 
 #jumbotron .infoBox .programInfoBox .btnContainer button a {
@@ -250,20 +250,21 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .container h2 {
   font-size: 5rem;
   font-family: creepyFont;
+  margin: 3rem 0;
 }
 
 .container .tableContainer {
@@ -271,13 +272,13 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .container .main-programs {
@@ -303,9 +304,9 @@ nav ul li:hover {
   color: #fff;
   width: 100%;
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-transform: translate3d(0, 140%, 75px);
-          transform: translate3d(0, 140%, 75px);
+  transform: translate3d(0, 140%, 75px);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
@@ -318,7 +319,7 @@ nav ul li:hover {
 
 .container .card:hover img {
   -webkit-filter: blur(5px) brightness(50%) grayscale(50%);
-          filter: blur(5px) brightness(50%) grayscale(50%);
+  filter: blur(5px) brightness(50%) grayscale(50%);
 }
 
 .container .card:hover .card-description {
@@ -373,15 +374,15 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   font-family: 'Bebas Neue', cursive;
   margin-top: 2rem;
 }
@@ -393,15 +394,15 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   padding: 2rem;
 }
 
@@ -415,20 +416,20 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   padding-left: 1.5rem;
 }
 
@@ -454,18 +455,18 @@ nav ul li:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-top: 1rem;
 }
 
@@ -478,7 +479,7 @@ nav ul li:hover {
 
 .container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer button:hover {
   -webkit-filter: brightness(50%) grayscale(50%);
-          filter: brightness(50%) grayscale(50%);
+  filter: brightness(50%) grayscale(50%);
 }
 
 .container2 .listenNowInfoBox .episodeInfoBox .btnAudioContainer button a {

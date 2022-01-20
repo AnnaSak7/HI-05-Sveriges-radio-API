@@ -1,12 +1,12 @@
 var P3SerieData;
-let targetPodcast;
+var Data;
+//let targetPodcast;
 let clickedID;
 let clickedNumber;
-var Data;
-const programs = {};
 let imgurl;
 let podname;
 
+const programs = {};
 const container = document.querySelector('.container');
 const container2 = document.querySelector('.container2');
 const jumbotron = document.getElementById('jumbotron');
@@ -16,21 +16,6 @@ const P3Serie = '4947';
 const CreepyPodden = '4845';
 const P3Krim = '5413';
 const Dystopia = '5188';
-
-// const fetchProgramData = (program) => {
-//   let URL = `https://api.sr.se/api/v2/programs/${program}?format=json`;
-//   fetch(URL)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log('fetching... ', data);
-
-//       createCards(data.program);
-//       sortDataInArray(data);
-//     })
-//     .catch((error) => {
-//       console.log(error, 'There has been an error');
-//     });
-// };
 
 async function fetchProgramData(program) {
   try {
@@ -50,18 +35,11 @@ const sortDataInArray = (data) => {
   dataObjects.id = data.program.id;
   dataObjects.name = data.program.name;
   dataObjects.img = data.program.socialimage;
-  dataObjects.url = data.program.url;
+  dataObjects.url = data.program.programurl;
   dataObjects.description = data.program.description;
   programs[data.program.id] = dataObjects;
   console.log('programs', programs);
 };
-
-function fetchInit() {
-  fetchProgramData(CreepyPodden);
-  fetchProgramData(P3Krim);
-  fetchProgramData(P3Serie);
-  fetchProgramData(Dystopia);
-}
 
 //INITIALIZING
 const init = () => {
